@@ -23,21 +23,10 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center mb-5">
+      <!-- <div class="col-12 text-center mb-5">
         <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logo | absURL }}" alt="{{ .Site.Title }}"></a>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-5">
-        <h6 class="mb-4">Contact Me</h6>
-        <ul class="list-unstyled">
-          <li class="mb-3"><a class="text-dark" href="tel:{{ .Site.Params.mobile }}"><i
-                class="ti-mobile mr-3 text-primary"></i>{{ .Site.Params.mobile }}</a></li>
-          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>{{ .Site.Params.location }}</li>
-          <li class="mb-3"><a class="text-dark" href="mailto:{{ .Site.Params.email }}"><i
-                class="ti-email mr-3 text-primary"></i>{{ .Site.Params.email }}</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-5">
+      </div> -->
+      <div class="col-lg-4 col-sm-6 mb-5">
         <h6 class="mb-4">Social Contacts</h6>
         <ul class="list-unstyled">
           {{ range .Site.Params.social }}
@@ -45,7 +34,7 @@
           {{ end }}
         </ul>
       </div>
-      <div class="col-lg-3 col-sm-6 mb-5">
+      <div class="col-lg-4 col-sm-6 mb-5">
         <h6 class="mb-4">Categories</h6>
         {{- if isset .Site.Taxonomies "categories" }}
         {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
@@ -59,7 +48,7 @@
         {{- end }}
         {{- end }}
       </div>
-      <div class="col-lg-3 col-sm-6 mb-5">
+      <div class="col-lg-4 col-sm-6 mb-5">
         <h6 class="mb-4">Quick Links</h6>
         <ul class="list-unstyled">
           {{ range .Site.Menus.footer }}
@@ -75,7 +64,11 @@
 </footer>
 
 <script>
-  var indexURL = {{ "index.json" | absURL }}
+  var indexURL = {
+    {
+      "index.json" | absURL
+    }
+  }
 </script>
 
 {{ "<!-- JS Plugins -->" | safeHTML }}
@@ -100,4 +93,45 @@
   })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
   ga('create', '{{ .Site.Params.googleAnalitycsID }}', 'auto');
   ga('send', 'pageview');
+</script>
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+<script>
+  if (window.hljs) {
+    hljs.initHighlighting();
+    const blocks = document.querySelectorAll('pre code');
+    for (let i = 0; i < blocks.length; i++) {
+      const block = blocks[i];
+      const rootElement = block.parentElement;
+      const lineCodes = block.innerHTML.split(/\n/);
+      if (lineCodes[lineCodes.length - 1] === '') lineCodes.pop();
+      const lineLength = lineCodes.length;
+
+      let codeLineHtml = '';
+      for (let i = 0; i < lineLength; i++) {
+        codeLineHtml += `<div class="line">${i + 1}</div>`;
+      }
+
+      let codeHtml = '';
+      for (let i = 0; i < lineLength; i++) {
+        codeHtml += `<div class="line">${lineCodes[i]}</div>`;
+      }
+
+      block.className += ' highlight';
+      const figure = document.createElement('figure');
+      figure.className = block.className;
+      figure.innerHTML =
+        `<table><tbody><tr><td class="gutter"><pre>${codeLineHtml}</pre></td><td class="code"><pre>${codeHtml}</pre></td></tr></tbody></table>`;
+
+      rootElement.parentElement.replaceChild(figure, rootElement);
+    }
+  } else {
+    const blocks = document.querySelectorAll('.highlight > .chroma');
+    for (let i = 0; i < blocks.length; i++) {
+      const block = blocks[i];
+      const afterHighLight = block.querySelector('pre.chroma > code');
+      const lang = afterHighLight ? afterHighLight.className : '';
+      block.className += ' ' + lang;
+    }
+  }
 </script>

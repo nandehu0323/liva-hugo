@@ -8,7 +8,107 @@ $border-color: #ACB9C4;
 $black: #000;
 $white: #fff;
 $gray: #f4fcff;
+$code-gray: #cacaca !default;
 
 // Font Variables
-$primary-font: 'Raleway', sans-serif;
+$primary-font: 'M PLUS 1p',
+sans-serif;
 $icon-font: 'themify';
+
+// ========== Code ========== //
+// Color of the code.
+$code-color: #c7254e !default;
+
+// Font size of code.
+$code-font-size: 13px !default;
+
+// Font family of the code.
+$code-font-family: Consolas,
+Monaco,
+Menlo,
+Consolas,
+monospace !default;
+
+// ========== Theme Color ========== //
+// Config here to change theme color
+// Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
+$theme-color-config: 'Nandehu';
+
+// Default theme color map
+$theme-color-map: ('Default': #c05b4d #f8f5ec,
+    'Mint Green': #16982B #f5f5f5,
+    'Cobalt Blue': #0047AB #f0f2f5,
+    'Hot Pink': #FF69B4 #f8f5f5,
+    'Dark Violet': #9932CC #f5f4fa,
+    'Nandehu': #1d77f2 #f0f2f5);
+
+// Check theme color config.
+// if it does not exist, use default theme color.
+@if not(map-has-key($theme-color-map, $theme-color-config)) {
+    $theme-color-config: 'Default';
+}
+
+$theme-color-list: map-get($theme-color-map, $theme-color-config);
+
+// Default theme color of the site.
+$theme-color: nth($theme-color-list, 1) !default;
+
+// Deputy theme color of the site.
+$deputy-color: nth($theme-color-list, 2) !default;
+
+// Color of code highlight, solarized.
+$code-highlight-color: (comment: #93a1a1,
+    keyword: #859900,
+    number: #2aa198,
+    title: #268bd2,
+    attribute: #b58900,
+    symbol: #cb4b16,
+    built_in: #dc322f,
+    formula: #eee8d5) !default;
+
+// Code type list.
+$code-type-list: ( // Custom code type
+    language-bash: "Bash",
+    language-c: "C",
+    language-cs: "C#",
+    language-cpp: "C++",
+    language-css: "CSS",
+    language-coffeescript: "CoffeeScript",
+    language-html: "HTML",
+    language-xml: "XML",
+    language-http: "HTTP",
+    language-json: "JSON",
+    language-java: "Java",
+    language-js: "JavaScript",
+    language-javascript: "JavaScript",
+    language-makefile: "Makefile",
+    language-markdown: "Markdown",
+    language-objectivec: "Objective-C",
+    language-php: "PHP",
+    language-perl: "Perl",
+    language-python: "Python",
+    language-ruby: "Ruby",
+    language-sql: "SQL",
+    language-shell: "Shell",
+
+    language-erlang: "Erlang",
+    language-go: "Go",
+    language-groovy: "Groovy",
+    language-haskell: "Haskell",
+    language-kotlin: "Kotlin",
+    language-less: "Less",
+    language-lisp: "Lisp",
+    language-lua: "Lua",
+    language-matlab: "Matlab",
+    language-rust: "Rust",
+    language-scss: "Scss",
+    language-scala: "Scala",
+    language-swift: "Swift",
+    language-typescript: "TypeScript",
+    language-yml: "YAML",
+    language-yaml: "YAML",
+    language-toml: "TOML"
+) !default;
+
+// Color of the code background.
+$code-background: $deputy-color !default;

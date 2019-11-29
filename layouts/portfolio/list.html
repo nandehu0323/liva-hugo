@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<section class="section-sm pb-0">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="widget-portfolio-title">My Portfolio</h2>
+    </div>
+    <div class="row">
+      {{ range (where .Site.RegularPages "Type" "portfolio")}}
+      <div class="portfolio-card">
+        <a href="{{ .Permalink }}"></a>
+        <header class="portfolio-card__header">
+          <img class="portfolio-card__icon" src="{{ .Params.Image | absURL }}" />
+        </header>
+        <section class="portfolio-card__body">
+          <div class="portfolio-card__title">{{ .Title | markdownify }}</div>
+          <span class="portfolio-card__duration">{{ .PublishDate.Format "02 Jan 2006" }}</span>
+          <div class="portfolio-card__description">
+            {{ .Description }}
+          </div>
+        </section>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
