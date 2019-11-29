@@ -2,6 +2,15 @@
     position: relative;
     padding: 20px;
     width: 25vw;
+
+    @include mobile {
+        width: 80vw;
+    }
+
+    @include mobile-xs {
+        width: 80vw;
+    }
+
     background-color: #FFF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 5px;
@@ -45,6 +54,15 @@
         position: relative;
         background-color: #eb6c3f;
         height: 15vw;
+
+        @include mobile {
+            height: 45vw;
+        }
+
+        @include mobile-xs {
+            height: 45vw;
+        }
+
         margin: -20px -20px 20px -20px;
         transition: height .5s;
         overflow: hidden;
