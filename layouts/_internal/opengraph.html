@@ -6,7 +6,7 @@
 {{ with .Params.images }}{{ range first 6 . }}
 <meta property="og:image" content="{{ . | absURL }}" />
 {{ end }}{{ else }}
-{{ with .Site.Params.site_images }}{{ range first 6 . }}
+{{ with .Site.Params.images }}{{ range first 6 . }}
 <meta property="og:image" content="{{ . | absURL }}" />
 {{ end }}
 {{ end }}
