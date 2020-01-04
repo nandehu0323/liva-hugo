@@ -13,6 +13,13 @@ VERSION:	Versoin Number
 
 @import 'mixins';
 
+@import './mixin/fonts';
+
+@include font-face('Geomanist', '../fonts/Geomanist-Regular.otf', null, null, otf);
+@include font-face('Geomanist', '../fonts/Geomanist-Regular-Italic.otf', null, italic, otf);
+@include font-face('Geomanist', '../fonts/Geomanist-Bold.otf', bold, null, otf);
+@include font-face('Geomanist', '../fonts/Geomanist-Bold-Italic.otf', bold, italic, otf);
+
 @import 'typography';
 
 @import 'buttons';
@@ -26,3 +33,5 @@ VERSION:	Versoin Number
 @import 'templates/portfolio.scss';
 
 @import 'templates/code.scss';
+
+@import 'templates/productcard.scss';

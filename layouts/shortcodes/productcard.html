@@ -1,0 +1,31 @@
+<div class="product_card">
+    <div class="product_image">
+        <img src="{{ .Get "src" }}" style="left: {{ .Get "img_left" }}px;" />
+    </div>
+    <div class="product_card_info">
+        {{ with .Get "rank"}}<div class="rank">{{ . }}</div>{{ end }}
+        <div class="brand_name">{{ .Get "brand" }}</div>
+        <div class="product_name">{{ .Get "product" }}</div>
+        <div class="star-ratings-css">
+            <div class="star-ratings-css-top" style="width: {{ .Get "rate" }}%">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+        </div>
+        <div class="description">
+            {{ .Get "description" }}
+        </div>
+        <div class="links">
+            {{ if .Get "store_link"}}
+            <div class="store_link"><a target="_blank" href={{ .Get "store_link" }}>通販サイト</a></div>
+            {{ else }}
+            <div class="disabled_link">通販サイト</div>
+            {{ end }}
+            {{ if .Get "official_link"}}
+            <div class="official_link"><a target="_blank" href={{ .Get "official_link" }}>公式サイト</a></div>
+            {{ else }}
+            <div class="disabled_link">公式サイト</div>
+            {{ end }}
+        </div>
+    </div>
+</div>
