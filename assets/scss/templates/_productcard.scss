@@ -2,7 +2,7 @@ div.product_card {
 
     // smartphone
     @media(max-width:575px) {
-        height: 70vh;
+        height: 100%;
     }
 
     // tablet
@@ -84,14 +84,14 @@ div.product_card {
         @media(max-width:575px) {
             width: 100%;
             height: 50%;
-            margin: 0px 10px 10px 10px;
+            margin: 15px 15px;
         }
 
         // tablet
         @media(max-width:767px) {
             width: 100%;
             height: 50%;
-            margin: 0px 10px 10px 10px;
+            margin: 10px 15px;
         }
 
         .rank {
@@ -102,18 +102,22 @@ div.product_card {
             font-size: 130px;
             color: #333333;
             opacity: 0.15;
-            z-index: 1;
+            z-index: 100;
             right: 30px;
             top: -15px;
 
             // smartphone
             @media(max-width:575px) {
                 font-size: 100px;
+                right: 15px;
+                transform: translate3d(0px, 0px, 100px);
             }
 
             // tablet
             @media(max-width:767px) {
                 font-size: 100px;
+                right: 15px;
+                transform: translate3d(0px, 0px, 100px);
             }
         }
 
@@ -194,7 +198,6 @@ div.product_card {
         }
 
         .description {
-            height: 50%;
             padding-right: 15px;
             text-align: left;
             font-size: 14px;
