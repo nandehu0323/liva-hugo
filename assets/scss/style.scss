@@ -19,6 +19,8 @@ VERSION:	Versoin Number
 @include font-face('Geomanist', '../fonts/Geomanist-Regular-Italic.otf', null, italic, otf);
 @include font-face('Geomanist', '../fonts/Geomanist-Bold.otf', bold, null, otf);
 @include font-face('Geomanist', '../fonts/Geomanist-Bold-Italic.otf', bold, italic, otf);
+@include font-face('Affogato', '../fonts/Affogato-Light.otf', 100, null, otf);
+@include font-face('Affogato', '../fonts/Affogato-Regular.otf', null, null, otf);
 
 @import 'typography';
 
@@ -35,3 +37,5 @@ VERSION:	Versoin Number
 @import 'templates/code.scss';
 
 @import 'templates/productcard.scss';
+
+@import 'templates/404.scss';

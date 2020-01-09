@@ -1,0 +1,135 @@
+.message {
+    font-family: Affogato;
+    color: #FFFFFF;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 15vh 0;
+
+    // tablet
+    @media(max-width:1024px) {
+        padding-top: 15vh;
+        padding-bottom: 0;
+    }
+
+    // smartphone
+    @media(max-width:575px) {
+        padding-top: 15vh;
+        padding-bottom: 0;
+    }
+
+    .statusCode {
+        flex-wrap: wrap;
+        font-size: 200px;
+        font-weight: 100;
+
+        // tablet
+        @media(max-width:1024px) {
+            // font-size: 100px;
+        }
+
+        // smartphone
+        @media(max-width:575px) {
+            font-size: 100px;
+        }
+    }
+
+    .errorMsg {
+        font-size: 50px;
+        position: relative;
+        top: -50px;
+
+        // tablet
+        @media(max-width:1024px) {
+            // font-size: 25px;
+            // top: -15px;
+        }
+
+        // smartphone
+        @media(max-width:575px) {
+            font-size: 25px;
+            top: -15px;
+        }
+    }
+
+    .homeButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+
+        // tablet
+        @media(max-width:1024px) {
+            margin: 0;
+        }
+
+        // smartphone
+        @media(max-width:575px) {
+            margin: 23vh 0;
+        }
+
+        width: 344px;
+        height: 74px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+
+        &:hover {
+            -webkit-transform: translateY(-2px);
+            -ms-transform: translateY(-2px);
+            transform: translateY(-2px);
+            box-shadow: 0px 5px 6px #00000029;
+        }
+
+        border-radius: 50px;
+        opacity: 1;
+        z-index: 1;
+        position: relative;
+
+        a {
+            color: #707070;
+            font-size: 30px;
+            line-height: 36px;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -25%);
+            transform: translate(-50%, -25%);
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+    }
+}
+
+.background {
+    height: 100vh;
+    /* 画像ファイルの指定 */
+    background-image: url('/images/sun.png'), url('/images/fuji.png'), url('/images/glass.png'), url('/images/sky.png');
+    background-position: 95% 10%, 0% 101%, 50% -14%, 50% 75%;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 20vh, 70vh, 135%, 170%;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed, fixed, fixed, fixed;
+
+    // tablet
+    @media(max-width:1024px) {
+        background-position: 95% 5%, 0% 101%, 50% 60vh, 50% -85vh;
+        background-size: 13vh, 45vh, 135%, 300%;
+    }
+
+    // smartphone
+    @media(max-width:575px) {
+        background-position: 95% 5%, 0% 101%, 50% 50vh, 50% -60vh;
+        background-size: 10vh, 35vh, 200%, 350%;
+    }
+}
