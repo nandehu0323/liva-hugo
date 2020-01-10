@@ -1,11 +1,13 @@
 <div class="col-md-6 mb-4">
     <article class="card">
         {{ if .Params.Image }}
-        <picture>
-            <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" class="card-img-top"
-                alt="{{ .Title | markdownify }}" />
-            <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
-        </picture>
+        <a href="{{ .Permalink }}">
+            <picture>
+                <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" class="card-img-top"
+                    alt="{{ .Title | markdownify }}" />
+                <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
+            </picture>
+        </a>
         {{ end }}
         <div class="card-body px-0">
             {{ range .Params.Categories }}
