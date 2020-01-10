@@ -10,7 +10,11 @@
         <article class="card featured-post">
           <div class="row no-gutters align-items-center">
             <div class="col-md-5">
-              <img src="{{ .Params.Image | absURL }}" class="card-img" alt="{{ .Title | markdownify }}">
+              <picture>
+                <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" class="card-img"
+                  alt="{{ .Title | markdownify }}" />
+                <img src="{{ .Params.Image | absURL }}" class="card-img" alt="{{ .Title | markdownify }}">
+              </picture>
             </div>
             <div class="col-md-6 offset-md-1">
               <div class="card-body">
@@ -38,7 +42,14 @@
       {{ range first 3 (where .Site.RegularPages "Type" "post")}}
       <div class="col-lg-4 small-post-border">
         <article class="media">
-          <div class="recent-post-thumb mr-3" style="background-image: url('{{ .Params.Image | absURL }}');"></div>
+          <div class="recent-post-thumb mr-3"
+            style="overflow: hidden; display: flex; justify-content: center; align-items: center;">
+            <picture>
+              <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp"
+                style="height: -webkit-fill-available;" />
+              <img src="{{ .Params.Image | absURL }}" style="height: -webkit-fill-available;" />
+            </picture>
+          </div>
           <div class="media-body">
             <div class="mb-3"><span>By {{ .Site.Params.Author }}</span> <span
                 class="border-bottom border-primary px-2 mx-1"></span>
@@ -64,7 +75,11 @@
           {{ range $paginator.Pages }}
           <div class="col-md-6 mb-4">
             <article class="card">
-              <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
+              <picture>
+                <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" class="card-img-top"
+                  alt="{{ .Title | markdownify }}" />
+                <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
+              </picture>
               <div class="card-body px-0">
                 {{ range .Params.Categories }}
                 <a href="{{ "categories/" | relLangURL }}{{ . | urlize | lower }}"
@@ -92,8 +107,12 @@
         <div class="widget">
           {{ range first 1 (where .Site.RegularPages "Type" "about")}}
           <h4 class="widget-title">{{ .Title | markdownify }}</h4>
-          <img src="{{ .Params.Image | absURL }}" alt=""
-            class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
+          <picture>
+            <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp"
+              class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4" />
+            <img src="{{ .Params.Image | absURL }}" alt=""
+              class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
+          </picture>
           <p>{{ .Summary }}</p>
           <a href="{{ .Permalink }}" class="btn btn-outline-primary">Know More</a>
           {{ end }}

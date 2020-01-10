@@ -12,7 +12,11 @@
         <div class="mb-3"><span>By {{ .Site.Params.Author }}</span> <span
             class="border-bottom border-primary px-2 mx-1"></span>
           <span>{{ .PublishDate.Format "02 January 2006" }}</span></div>
-        <img src="{{ .Params.Image | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+        <picture>
+          <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" class="img-fluid w-100 mb-4"
+            alt="{{ .Title | markdownify }}" />
+          <img src="{{ .Params.Image | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+        </picture>
         <aside>
           {{ .TableOfContents }}
         </aside>
@@ -22,12 +26,8 @@
 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- nandehu.com-ad2 -->
-        <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-6684604168986047"
-          data-ad-slot="7025101797"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6684604168986047"
+          data-ad-slot="7025101797" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>

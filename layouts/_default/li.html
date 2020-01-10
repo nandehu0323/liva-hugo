@@ -1,7 +1,11 @@
 <div class="col-md-6 mb-4">
     <article class="card">
         {{ if .Params.Image }}
-        <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
+        <picture>
+            <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" class="card-img-top"
+                alt="{{ .Title | markdownify }}" />
+            <img src="{{ .Params.Image | absURL }}" class="card-img-top" alt="{{ .Title | markdownify }}">
+        </picture>
         {{ end }}
         <div class="card-body px-0">
             {{ range .Params.Categories }}

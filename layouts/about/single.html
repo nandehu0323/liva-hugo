@@ -4,7 +4,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
-        <img src="{{ .Params.Image | absURL }}" alt="" class="img-fluid d-block mx-auto rounded-circle mb-4">
+        <picture>
+          <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp"
+            class="img-fluid d-block mx-auto rounded-circle mb-4" />
+          <img src="{{ .Params.Image | absURL }}" alt="" class="img-fluid d-block mx-auto rounded-circle mb-4">
+        </picture>
         <h4 class="widget-title">{{ .Title | markdownify }}</h4>
         <div class="content">
           {{ .Content }}
@@ -24,8 +28,10 @@
     <div class="row no-gutters">
       {{ range .gallery }}
       <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-        <a href="{{ .image | absURL}}" class="venobox" data-gall="gallery"><img class="img-fluid w-100"
-            src="{{ .image | absURL}}" alt=""></a>
+        <picture>
+          <source type="image/webp" srcset="{{ .image | absURL}}.webp" class="img-fluid w-100">
+          <img class="img-fluid w-100" src="{{ .image | absURL}}" alt="">
+        </picture>
       </div>
       {{ end }}
     </div>

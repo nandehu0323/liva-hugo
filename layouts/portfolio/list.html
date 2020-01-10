@@ -10,7 +10,10 @@
       <div class="portfolio-card">
         <a href="{{ .Permalink }}"></a>
         <header class="portfolio-card__header">
-          <img class="portfolio-card__icon" src="{{ .Params.Image | absURL }}" />
+          <picture>
+            <source class="portfolio-card__icon" type="image/webp" srcset="{{ .Params.Image | absURL }}.webp" />
+            <img class="portfolio-card__icon" src="{{ .Params.Image | absURL }}" />
+          </picture>
         </header>
         <section class="portfolio-card__body">
           <div class="portfolio-card__title">{{ .Title | markdownify }}</div>
