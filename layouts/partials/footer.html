@@ -39,7 +39,11 @@
 </footer>
 
 <script>
-  var indexURL = {{ "index.json" | absURL }}
+  var indexURL = {
+    {
+      "index.json" | absURL
+    }
+  }
 </script>
 
 {{ "<!-- JS Plugins -->" | safeHTML }}
@@ -66,6 +70,7 @@
   ga('send', 'pageview');
 </script>
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e18c0feb82446e4"></script>
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
 <script>
   if (window.hljs) {
