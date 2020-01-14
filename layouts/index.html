@@ -49,8 +49,9 @@
             <a href="{{ .Permalink }}">
               <picture>
                 <source type="image/webp" srcset="{{ .Params.Image | absURL }}.webp"
-                  style="height: -webkit-fill-available;" />
-                <img src="{{ .Params.Image | absURL }}" style="height: -webkit-fill-available;" />
+                  style="height: -webkit-fill-available;" alt="{{ .Title | markdownify }}" />
+                <img src="{{ .Params.Image | absURL }}" style="height: -webkit-fill-available;"
+                  alt="{{ .Title | markdownify }}" />
               </picture>
             </a>
           </div>
