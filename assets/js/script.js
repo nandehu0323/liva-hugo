@@ -24,7 +24,4 @@
     dots: true
   });
 
-  // venobox initialize
-  $('.venobox').venobox(); 
-
 })(jQuery);

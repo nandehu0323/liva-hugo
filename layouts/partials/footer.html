@@ -83,6 +83,8 @@
   var addthis_config = addthis_config || {};
   addthis_config.data_track_clickback = false;
 </script>
+
+{{ if .IsPage }}
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
 <script>
   if (window.hljs) {
@@ -123,3 +125,4 @@
     }
   }
 </script>
+{{ end }}
