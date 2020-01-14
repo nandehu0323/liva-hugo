@@ -504,3 +504,21 @@ footer {
 }
 
 /* /markdown style */
+
+.smartphone-ads {
+  display: none;
+
+  @media screen and (max-width: 640px) {
+    display: block;
+  }
+}
+
+.smartphone-sm {
+  @media screen and (max-width: 640px) {
+    padding-top: 0px;
+  }
+}
+
+.adsbygoogle {
+  margin-top: 3rem;
+}
